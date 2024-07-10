@@ -1,30 +1,27 @@
-e% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template version: 5
-
 \usepackage{geometry}
 \usepackage{fontspec}
 \usepackage{titling}
 \usepackage{setspace}
-\usepackage[luatex, pdfencoding=auto, colorlinks=true, allcolors=CadetBlue]{hyperref} % load last
+\usepackage[pagestyles]{titlesec} % load before header footer; no need to load titleps separately
+\usepackage{caption}
 
-% set constants
-\newcommand{\VOLUME}{17}
-\newcommand{\RECEIVEDDATE}{2023-10-29}
 
 % margins
 \geometry{
     hmargin=12truemm, 
-    vmargin=18truemm
+    vmargin=18truemm,
+    headsep=5.65truemm,
+    footskip=5.65truemm
 }
 
 % typefaces
+\usepackage{newpxtext, newpxmath}
 \setsansfont[Ligatures=TeX]{TeXGyreHeros}
 \setmainfont[Ligatures=TeX]{TeXGyrePagella}
 \setmonofont{FiraMono}
-\usepackage{newpxmath}
 
 % layouts
 \setlength{\columnsep}{8mm}
-\renewcommand{\baselinestretch}{1}
 
 \date{}
 
@@ -51,10 +48,12 @@ e% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template vers
     \vspace{-2mm}
 }
 
+% caption
 
+\captionsetup[figure]{labelfont={bf},labelformat={default}, labelsep=quad, name={Fig.}}
+\captionsetup[table]{labelfont={bf},labelformat={default}, labelsep=quad, name={Table}}
 % document 
 % section labels
-\usepackage[pagestyles]{titlesec} % load before header footer; no need to load titleps separately
 % format: \titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
 
 % https://tex.stackexchange.com/questions/111251/chapter-title-alignment-with-titleformat
@@ -64,11 +63,11 @@ e% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template vers
     }{
     }{%
         \footnotesize
-        Advanced Institute of Industrial Technology Bulletin Vol \VOLUME
+        Bulletin of Advanced Institute of Industrial Technology Vol \VOLUME
     }
     \setfoot{% left 
         \footnotesize 
-        Received: \RECEIVEDDATE; Published online: 2023-mm-dd
+        Received: \RECEIVEDDATE; Published online: \PUBLISHEDDATE
 
     }{% center
         % \footnotesize
@@ -91,3 +90,7 @@ e% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template vers
     }
     \setfoot{}{}{}
 }
+
+% hyperref (load last)
+
+\usepackage[luatex, pdfencoding=auto, colorlinks=true, allcolors=CadetBlue]{hyperref}

@@ -1,10 +1,8 @@
-% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template version: 5
-
+% AIIT Bulletin Template Version 18.0 2024-07-09; Equivalent Word template version: 6
 \documentclass[fontsize=9pt, jafontscale=.95, twocolumn, a4paper]{jlreq}
-\usepackage{authblk}
-\renewcommand\Affilfont{\footnotesize\vspace{-.2mm}}
-\title{東京都立産業技術大学院大学研究紀要執筆ガイド: 2023年度版}
-\newcommand{\entitle}{Preperation of papers for the Bulletin of Advanced Instutitue of Industrial Technology: 2023}
+\usepackage{variables}
+\title{東京都立産業技術大学院大学研究紀要執筆ガイド: \YEAR 年度版}
+\newcommand{\entitle}{Preperation of papers for the Bulletin of Advanced Instutitue of Industrial Technology: \YEAR}
 \author[1*]{松井 実}
 \author[1,2]{執筆者 共同}
 \author[2,3]{執筆者 最終}
@@ -29,13 +27,13 @@
 \input{title-abstract-keywords}
 \section{はじめに}
 
-本稿では、2023年度に更新された東京都立産業技術大学院大学研究紀要の新しい執筆用のTeXテンプレートファイル\cite{Matsui2023-lk}について記す。編集委員は提出された原稿をチェックはするが、体裁を整えることはしないので、無編集で公開しても問題ない品質に仕上げるための方法を説明する。
+本稿では、東京都立産業技術大学院大学研究紀要の執筆用LaTeXテンプレート（日本語版\cite{Matsui2024-lk}；英語版\cite{Matsui2024-vp}）について記す（本紀要執筆ガイドは\YEAR 年度版）。編集委員は提出された原稿をチェックはするが、体裁を整えることはしないので、無編集で公開しても問題ない品質に仕上げるための方法を説明する。
 
 原稿は、日本語もしくは英語による完全版下 (camera ready) 原稿とする。製版後の校正は原則として不可能であるため、誤字や脱字がないよう、特に念を入れて仕上げる。刷り上がりは6ページ以上が望ましい。余白や段組、使用するフォントやフォントサイズを変更せず、そうしなければ論文としての体裁が整わないのでない限りこのテンプレートファイルに用意されたスタイルのまま仕上げる。
 
 \subsection*{環境}
 
-コンパイラにはLuaLaTeXを使用し、\verb|main.tex|をコンパイルする。\verb|aiit.sty|は記述に必須のパッケージが入っているので常に\mintinline{latex}{\usepackage{aiit}}としてインポートするべきだが、\verb|aiit-aes.sty|はレイアウトやヘッダー・フッターのスタイリングなどに関する設定が入っているため、下書きの段階では\mintinline{latex}{\usepackage{aiit-aes}}の行はコメントアウトしておいてもよい（コンパイルが少し早くなる）。TeX Liveのバージョンは2022を想定している。クラウド上でTeX文書を編集・生成できるサービスOverleaf\cite{Matsui2023-lk}での利用を想定しているが、自らの責任においてCloud LaTeXやローカル環境で使用してもよい。後述するmintedパッケージはPygmentsを使用するため、Overleaf以外の環境で本テンプレートを使用する場合はPygmentsをインストールするか、mintedに関連する記述を削除し、デフォルトの\verb|\verb|や\verb|\verbatim|を用いる。
+コンパイラにはLuaLaTeXを使用し、\verb|main.tex|をコンパイルする。\verb|aiit.sty|は記述に必須のパッケージが入っているので常に\mintinline{latex}{\usepackage{aiit}}としてインポートするべきだが、\verb|aiit-aes.sty|はレイアウトやヘッダー・フッターのスタイリングなどに関する設定が入っているため、下書きの段階では\mintinline{latex}{\usepackage{aiit-aes}}の行はコメントアウトしておいてもよい（コンパイルが少し早くなる）。TeX Liveのバージョンは2024を想定している。クラウド上でTeX文書を編集・生成できるサービスOverleafでの利用を想定している。Overleafを利用する場合、無料版の契約では制限時間内に\YEAR 年度現在の本テンプレートのコンパイルが終わらないため、有料版を契約する必要がある。自らの責任においてCloud LaTeXやローカル環境で使用してもよい。後述するmintedパッケージはPygmentsを使用するため、Overleaf以外の環境で本テンプレートを使用する場合はPygmentsをインストールするか、mintedに関連する記述を削除し、デフォルトの\verb|\verb|や\verb|\verbatim|を用いる。
 
 \section{表題、著者名、概要}
 
@@ -83,7 +81,7 @@
 
 図の品質は印刷に十分耐えうるものでなければならない。刷り上がり時の文字が小さすぎないよう十二分に配慮し、線の太さにも注意する。また、図表の余白にも注意する。図の具体的な描画方法については規定しないが、軸や目盛り線の太さは0.15 mmを推奨し、パネルキャプションや凡例、軸名、数値ラベルなどのフォントサイズは6 ptを推奨する。
 
-\begin{figure}
+\begin{figure}[hbt!]
   \centering
 \includegraphics[width=89mm]{p_plot}
     \caption{1カラムの横幅89 mmサイズの図の例。}
@@ -92,7 +90,7 @@
 \begin{figure*}[hbt!]
   \centering
 \includegraphics[width=\textwidth]{p_plot2}
-    \caption{1カラムの横幅186 mmサイズの図の例。}
+    \caption{2カラムの横幅186 mmサイズの図の例。}
     \label{figure:figureExampleLarge}
 \end{figure*}
 
@@ -214,15 +212,33 @@ ggsave("./output/p_plot2.png", width = 180, height = 120, unit = "mm", dpi = 600
 
 \section{参考文献の引用}
 
-本テンプレートの引用にはcitation-style-languageパッケージを用いているが、著者の責任においてbibtexやbiblatexなどを用いてもよい。本テンプレートファイルでは一例として、PaperPileを利用して参考文献を管理し、PaperPileのWorkflows and Integrations機能からOverleaf Integrationを選択したのち、発行されたURLを利用してオンラインのファイルを\verb|bibliography.bib|として接続している。デフォルトの設定のままでは\"{u}のような特殊文字の表示は、\mintinline{latex}{\"{u}}のように書くとコンパイルが失敗する（コンパイルがいつまで経っても終わらない）ので、\mintinline{text}{author = "Müller-Brockmann, Josef"}のように直接UTF-8で記述する必要がある（この問題はTeX Live 2023では解決済みのようなので、近日中に解決するかもしれない）。PaperPileでは設定でこの問題を回避できる。Settings\textgreater BibTeX\textgreater Escape UTF-8 charactersのチェックを外している。同様に、Include identifiers (doi, pmid)とInclude URLsにチェックを入れ、Include abstractとInclude keywordsのチェックを外した。Zoteroの場合は、\href{https://github.com/zepinglee/citeproc-lua/issues/24}{citation-style-languageの開発者が推奨する}ように\href{https://retorque.re/zotero-better-bibtex/}{Better BibTeX}を使う方法がある（未検証）。
+本テンプレートの引用にはcitation-style-languageパッケージを用いているが、著者の責任においてbibtexやbiblatexなどを用いてもよい。本テンプレートファイルでは一例として、PaperPileを利用して参考文献を管理し、PaperPileのWork  flows and Integrations機能からOverleaf Integrationを選択したのち、発行されたURLを利用してオンラインのファイルを\verb|bibliography.bib|として接続している。設定は、Settings\textgreater BibTeX\textgreater Include identifiers (doi, pmid)とInclude URLsにチェックを入れ、Escape UTF-8 charactersとInclude abstractとInclude keywordsのチェックを外す。Zoteroの場合は、\href{https://github.com/zepinglee/citeproc-lua/issues/24}{citation-style-languageの開発者が推奨する}ように\href{https://retorque.re/zotero-better-bibtex/}{Better BibTeX}を使う方法がある（未検証）。
 
-引用方式はPLOS形式を用いる。引用方式は\mintinline{latex}{\cslsetup{style=plos}}で指定済みである。\verb|style=plos|はフォルダに格納済みの\verb|plos.csl|に紐付けられているため、このファイルを削除したりしないこと。PLOS形式はヴァンクーヴァー形式のヴァリアントで、本文中での引用を(1)ではなく[1]に変更したものである。引用ルールの適用にはたとえばPLOS ONEウェブサイト\cite{Plos_undated-wc}からplos2015.bstファイルをダウンロードしてbibtex経由で適用してもよいが、ログファイルを経由しなければ一覧が生成できず煩雑なので、citation-style-languageパッケージの利用を推奨する。citation-style-languageパッケージには上述の特殊文字の問題に加え、アンダースコア（\verb|_|）を含むフィールドがあるとコンパイルが終わらない、\verb|howpublished={\url{}}|ではURLが表示されない、などの制限がある。そのため、コンパイルが終わらない際は.bibファイルのフォーマッティングに問題がある場合が多いので、面倒でも\mintinline{bib}{@comment{}}を使うなどして文献ごとに問題がないか、問題があるとすればどのフィールドなのかをチェックしていくことを推奨する。
+引用方式はPLOS形式を用いる。引用方式は\mintinline{latex}{\cslsetup{style=plos}}で指定済みである。\verb|style=plos|はフォルダに格納済みの\verb|plos.csl|に紐付けられているため、このファイルを削除したりしないこと。PLOS形式はヴァンクーヴァー形式のヴァリアントで、本文中での引用を(1)ではなく[1]に変更したものである。引用ルールの適用にはたとえばPLOS ONEウェブサイト\cite{Plos_undated-wc}からplos2015.bstファイルをダウンロードしてbibtex経由で適用してもよいが、ログファイルを経由しなければ一覧が生成できず煩雑なので、citation-style-languageパッケージの利用を推奨する。citation-style-languageパッケージにはアンダースコア（\verb|_|）を含むフィールドがあるとコンパイルが終わらない、\verb|howpublished={\url{}}|ではURLが表示されない、などの制限がある。そのため、コンパイルが終わらない際は.bibファイルのフォーマッティングに問題がある場合が多いので、面倒でも\mintinline{bib}{@comment{}}を使うなどして文献ごとに問題がないか、問題があるとすればどのフィールドなのかをチェックしていくことを推奨する。
 
-日本語訳された書籍の例\cite{Henrich2019-yk}単著洋書の例\cite{Dawkins2006-fw, Dennett2017-xz}、単著英文論文の例\cite{Tehrani2013-dy}、共著英文論文の例\cite{Henrich2008-lq}、８人共著論文の例\cite{Cooney2017-yt}、共著和文論文の例\cite{2012-zr}、共著和書の例\cite{2012-dp}、共著和書の一章の例\cite{2017-dc}。これらはあくまで自動生成された例であるため、矛盾がある場合はPLOS ONEの引用形式\cite{Plos_undated-yh}に従うこと。
+日本語訳された書籍の例\cite{2019-yk}単著洋書の例\cite{Dawkins2006-fw, Dennett2017-xz}、単著英文論文の例\cite{Tehrani2013-dy}、共著英文論文の例\cite{Henrich2008-lq}、８人共著論文の例\cite{Cooney2017-yt}、共著和文論文の例\cite{2012-zr}、共著和書の例\cite{2012-dp}、共著和書の一章の例\cite{2017-dc}。これらはあくまで自動生成された例であるため、矛盾がある場合はPLOS ONEの引用形式\cite{Plos_undated-yh}に従うこと。
+
+\section{その他}
+
+\subsection*{紀要編集委員の例年のルーチンタスク}
+\verb|variables.sty|内の変数を毎年更新する。
+\subsection*{執筆の実例}
+
+テンプレート更新の経緯についての紀要論文\cite{2024-oz}は2023年度版のLaTeXテンプレートを用いて執筆されている\cite{Matsui2023-px}。もし本LaTeXテンプレートを執筆に利用した方で、Overleafのプロジェクトを共有してもよい方はここにリストしたいのでShare projectから共有をオンにし、View権限のみのURLを紀要編集委員に提供いただきたい。
+% 2025年度以降の紀要編集委員の方へ：プロジェクトのリストは引用ではなくここにURLをhref{Overleafへのリンク}{著者ら, yyyy}で羅列する想定です（管理が大変なので）。
 
 \section{ライセンス}
-著作権は著者に帰属する。クリエイティブ・コモンズ・ライセンスの表示が可能（表示しなくてもよい）。初回原稿提出時にGoogle Form上でライセンスを指定する。原稿への掲載は一括して事務局で行う。このテンプレートファイルじたいのライセンスは表示 4.0 国際（CC BY 4.0）\cite{Creative_Commons_undated-dl}。
+著作権は著者に帰属する。クリエイティブ・コモンズ・ライセンスの表示が可能（表示しなくてもよい）。もし表示したい場合は、参考文献のあとに、\mintinline{latex}{\input{licenses/cc-by}}のような形で羅列されたライセンスから適用したいバージョンを一つ選んで残し、他はコメントアウトするか削除する。もし表示したくない場合はすべてコメントアウトするか削除する。また、初回原稿提出時にGoogle Form上でライセンスを指定すること。このテンプレートファイルじたいのライセンスは表示 4.0 国際（CC BY 4.0）\cite{Creative_Commons_undated-dl}。
 
 \printbibliography
+
+% select an applicable license from the list below and comment out (or delete) the others
+\input{licenses/cc-by} 
+% \input{licenses/cc-by-sa} 
+% \input{licenses/cc-by-nd} 
+% \input{licenses/cc-by-nc} 
+% \input{licenses/cc-by-nc-sa} 
+% \input{licenses/cc-by-nc-nd} 
+
 
 \end{document}

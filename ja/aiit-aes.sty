@@ -1,13 +1,8 @@
-% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template version: 5
 \usepackage{geometry}
 \usepackage{luatexja-fontspec}
 \usepackage{titling}
 \usepackage{setspace}
 \usepackage[pagestyles]{titlesec} % load before header footer; no need to load titleps separately
-
-% set constants
-\newcommand{\VOLUME}{17}
-\newcommand{\RECEIVEDDATE}{2023-10-29}
 
 % margins
 \geometry{
@@ -16,13 +11,13 @@
 }
 
 % typefaces
+\usepackage{newpxtext, newpxmath}
 \setsansfont[Ligatures=TeX]{TeXGyreHeros}
 \setmainfont[Ligatures=TeX]{TeXGyrePagella}
 \setmonofont{FiraMono}
 \setmainjfont[BoldFont=HaranoAjiMincho-Bold]{HaranoAjiMincho-Regular}
-\setsansjfont{HaranoAjiGothic-Medium}
+\setsansjfont[BoldFont=HaranoAjiGothic-Medium]{HaranoAjiGothic-Medium}
 \newjfontfamily\jisninety[CJKShape=JIS1990]{HaranoAjiMincho-Regular}
-\usepackage{newpxmath}
 
 % layouts
 \setlength{\columnsep}{8mm}
@@ -75,7 +70,6 @@
 
 
 \titleformat{name=\subsection}[block]{
-    \bfseries
     \sffamily
 }{\thesubsection}{0em}{\vspace{-3mm}}
 \usepackage{indentfirst} % to compensate #8
@@ -87,11 +81,11 @@
     }{
     }{%
         \footnotesize
-        Advanced Institute of Industrial Technology Bulletin Vol \VOLUME
+        Bulletin of Advanced Institute of Industrial Technology Vol \VOLUME
     }
     \setfoot{% left 
         \footnotesize 
-        Received: \RECEIVEDDATE; Published online: 2023-mm-dd
+        Received: \RECEIVEDDATE; Published online: \PUBLISHEDDATE
 
     }{% center
         % \footnotesize

@@ -1,4 +1,3 @@
-% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template version: 5
 % overall document settings
 
 \usepackage{graphicx} % figs
@@ -12,6 +11,7 @@
 \usepackage{citation-style-language} % cite
 \usepackage{ragged2e} % uniform raggedright
 \graphicspath{ {./images/} }
+\usepackage{fix-cm} % to suppress font shape X in size x not available
 
 % title, author, abstract, keyword
 
@@ -30,7 +30,7 @@
 % bgcolor must be set to an arbitrary color to properly color bg (default minted behavior) to prevent massive ink loss when printing
 \definecolor{manni-bg}{HTML}{f0f3f3}
 \setminted{fontsize=\footnotesize, breaklines, style=manni, bgcolor=manni-bg} 
-\setmintedinline{fontsize=\currentfontsize, breaklines, breakanywhere, bgcolor={}, style=manni}
+\setmintedinline{fontsize=\small, breaklines, breakanywhere, bgcolor={}, style=manni}
 
 % citation using citation-style-language
 
