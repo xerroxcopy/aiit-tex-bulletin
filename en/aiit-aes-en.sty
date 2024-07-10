@@ -1,0 +1,93 @@
+e% AIIT Bulletin Template Version 17.9 2023-07-13; Equivalent Word template version: 5
+
+\usepackage{geometry}
+\usepackage{fontspec}
+\usepackage{titling}
+\usepackage{setspace}
+\usepackage[luatex, pdfencoding=auto, colorlinks=true, allcolors=CadetBlue]{hyperref} % load last
+
+% set constants
+\newcommand{\VOLUME}{17}
+\newcommand{\RECEIVEDDATE}{2023-10-29}
+
+% margins
+\geometry{
+    hmargin=12truemm, 
+    vmargin=18truemm
+}
+
+% typefaces
+\setsansfont[Ligatures=TeX]{TeXGyreHeros}
+\setmainfont[Ligatures=TeX]{TeXGyrePagella}
+\setmonofont{FiraMono}
+\usepackage{newpxmath}
+
+% layouts
+\setlength{\columnsep}{8mm}
+\renewcommand{\baselinestretch}{1}
+
+\date{}
+
+\renewcommand\Authsep{\quad} %authblk, default ", "
+\renewcommand\Authands{\quad} %authblk
+\renewcommand\Authand{\quad} %authblk
+
+\pretitle{%
+    \rule{\textwidth}{.1mm}
+    \vspace{-4mm}
+    \begin{flushleft}
+    \huge
+}
+\posttitle{%
+    \end{flushleft}
+}
+\preauthor{%
+    \begin{flushleft}
+    \large
+}
+
+\postauthor{%
+    \end{flushleft}
+    \vspace{-2mm}
+}
+
+
+% document 
+% section labels
+\usepackage[pagestyles]{titlesec} % load before header footer; no need to load titleps separately
+% format: \titleformat{command}[shape]{format}{label}{sep}{before-code}[after-code]
+
+% https://tex.stackexchange.com/questions/111251/chapter-title-alignment-with-titleformat
+\renewpagestyle{plain}{%
+    \sethead{%
+        \includegraphics[height=2.4mm]{aiit_ja_long}
+    }{
+    }{%
+        \footnotesize
+        Advanced Institute of Industrial Technology Bulletin Vol \VOLUME
+    }
+    \setfoot{% left 
+        \footnotesize 
+        Received: \RECEIVEDDATE; Published online: 2023-mm-dd
+
+    }{% center
+        % \footnotesize
+        % DOI: 
+        % \href{https://doi.org/\doi}{\doi}
+    }{% right
+        % \footnotesize 
+        % \sffamily
+        % \bfseries
+        % \thepage
+    }
+}
+\newpagestyle{aiit}{%
+    \sethead{%
+        \includegraphics[height=2.4mm]{aiit_ja_long}
+    }{
+    }{%
+        \footnotesize
+        Advanced Institute of Industrial Technology Bulletin Vol \VOLUME
+    }
+    \setfoot{}{}{}
+}
